@@ -1,6 +1,7 @@
 int led = 12;
 int pushbutton = 10;
-int Reading = 0;
+int pushButtonStatus;
+  int ledStatus;
 void setup()
 {
   pinMode(12,OUTPUT);
@@ -8,17 +9,24 @@ void setup()
 }
 void loop()
 {
-  Reading = digitalRead(pushbutton);
-  if (Reading == HIGH)
-  {digitalWrite(12,HIGH);
-  }
-  else
+  pushButtonStatus = digitalRead(pushbutton);
+  if (pushButtonStatus == 1)
+  {if( ledStatus == 0)
   {
-    digitalWrite(12,LOW);
+  
+    digitalWrite(led,HIGH);
+   ledStatus = 1;
+    delay(250);
   }
-  
-  
+   else {digitalWrite(led,LOW);
+         ledStatus = 0;
+         delay(250);
+        }
+  }
 }
+  
+  
+  
   
   
   
